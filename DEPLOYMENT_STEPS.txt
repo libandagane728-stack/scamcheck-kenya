@@ -1,0 +1,19 @@
+SCAMCHECK KENYA — DEPLOYMENT CHECKLIST
+
+1. Create a GitHub repository and upload this folder.
+2. Create a web service on a Docker-compatible hosting provider.
+3. Deploy using the included Dockerfile/render.yaml.
+4. Add secret environment variables on the hosting provider:
+   VIRUSTOTAL_API_KEY
+   URLSCAN_API_KEY
+5. Initially keep ENABLE_EXTERNAL_URL_SCANS=false.
+6. Test /api/status and /api/check.
+7. Only after privacy/security testing, set ENABLE_EXTERNAL_URL_SCANS=true.
+8. Copy the resulting HTTPS API URL into the Android app:
+   app/src/main/java/com/scamcheckkenya/app/MainActivity.java
+   Replace YOUR-SCAMCHECK-SERVER.example
+9. Build a signed Android App Bundle (.aab) in Android Studio.
+10. Upload the AAB to Play Console internal testing first, then closed testing.
+
+Do not put API keys in the Android app.
+Do not use a personal user's private messages as third-party threat-intelligence submissions.

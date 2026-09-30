@@ -1,0 +1,13 @@
+services:
+  - type: web
+    name: scamcheck-kenya-api
+    runtime: docker
+    plan: free
+    healthCheckPath: /api/status
+    envVars:
+      - key: ENABLE_EXTERNAL_URL_SCANS
+        value: "false"
+      - key: VIRUSTOTAL_API_KEY
+        sync: false
+      - key: URLSCAN_API_KEY
+        sync: false
